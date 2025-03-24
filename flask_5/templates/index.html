@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>🐕 Title of index.html 🐕</title>
+    </head>
+    <body>
+        Gday {{ JINJA_NAME }} from index.html
+
+    </body>
+</html>
+<!-- 1. [GET]   index.html                                                              -> "Gday DEFAULT_NAME"  -->
+
+<!-- 2. [GET]   index.html?URL_KEY_NAME                                                 -> "Gday URL_KEY_NAME"  -->
+
+<!-- 3. [GET]   [a.] index.html.FORM['URL_KEY_NAME']                                                            -->
+<!-- 3. [GET]   [a.] add: greet.html?URL_KEY_NAME                                       -> "Gday URL_KEY_NAME"  -->
+
+<!-- 4. [GET]   [a.] add: layout.html: {JJA_block blockname... endblock_JJA}                -> "Gday ??"            -->
+<!-- 4. [GET]   [b.] add: index.html:  {JJA_block blockname... endblock_JJA}                -> "Gday DEFAULT_NAME"  -->
+<!-- 4. [GET]   [b.] add: greet.html:  {JJA_block blockname... endblock_JJA}                -> "Gday URL_KEY_NAME"  -->
+
+
+
+<!-- ?. [POST]  index.html.FORM['URL_KEY_NAME'] -> ???                                -> "Gday URL_KEY_NAME" -->
