@@ -7,22 +7,24 @@
         <title>🐕 Title of index.html 🐕</title>
     </head>
     <body>
-        <!-- Gday { JINJA_NAME } from index.html -->
-        <!-- <form> -->
-            <!-- <input type="text" name="URL_KEY_NAME" id="input_id" -->
-            <input type="text" id="input_id"
-            placeholder="Name Please" autofocus autocomplete="off">
-            <button id="submit_id">Submit</button>
-        <!-- </form> -->
-        <script>
-            let input = document.getElementById("input_id");
+        <form>
+            <input type="text" id="input_id" autofocus autocomplete="off" placeholder="Name">
+            <input type="submit" value="Submit">
+            <p></p>
+        </form>
 
-            let btn = document.getElementById("submit_id")
-            btn.addEventListener("click",function(){
-                console.log(input.value)
-                // console.log(input.innerHTML)
-                // console.log(input.textContent)
-            })
+        <script>
+            /**
+             * @param {SubmitEvent} event
+             */
+            function do_some_js(event){
+                // update p
+                let input_element_value = form.querySelector("input_id").value
+                document.querySelector("p").innerHTML = input_element_value;
+                event.preventDefault();
+            }
+            let form = document.getElementById("form")
+            form.addEventListener("submit",do_some_js)
         </script>
     </body>
 </html>
@@ -30,11 +32,11 @@
 <!-- 
 
  #6 - add input text to index.html #6
-#11 -     add input text outside form tag to index #11 #DONE
-#12 -     add input text inside form tag to index #12 #NOW
+#DONE: #11 - add input text outside form tag to index #11 
+#NOW:  #12 - add input text inside form tag to index #12 
 #16 -     add request.args.get to app.py to *return* form input from user #16
 #13 -     test URL_KEY of form by displaying result in a p tag #13
- #7 - add form.action to /greet to index.html #7
+    #7 - add form.action to /greet to index.html #7
  #8 - add flask_route /greet #8
  #9 - add greet.html #9
 #10 - add map URL_KEY_NAME of app.py to JINJA_NAME placeholder of greet.html #10
