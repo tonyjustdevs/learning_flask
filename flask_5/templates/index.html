@@ -9,7 +9,8 @@
     <body>
         <!-- action=""> goes (back) to: http://127.0.0.1:5000/?URL_KEY_NAME=iniesta -->
         <form action="">
-            <input type="text" id="input_id" autofocus autocomplete="off" placeholder="Name" name="URL_KEY_NAME">
+            <input type="text" id="input_id" autofocus autocomplete="off" placeholder="Name" 
+            name="URL_KEY_NAME">
             <input type="submit" value="Submit">
         </form>
         <p>G'day {{JINJA_NAME}} from QueryParameters</p>
@@ -24,8 +25,8 @@
 #DONE: #17 - add action attribute of form tag to route /greet #17 
 #DONE  #16 - add request.args.get to app.py to *return* form input from user #16
 #DONE  #13 - test URL_KEY of form by displaying result in a p tag #13
-    #7 - add form.action to /greet to index.html #7
- #8 - add flask_route /greet #8
+#DONE  #7 - add form.action to /greet to index.html #7
+#NOW   #8 - add flask_route /greet to app.py #8
  #9 - add greet.html #9
 #10 - add map URL_KEY_NAME of app.py to JINJA_NAME placeholder of greet.html #10
 
