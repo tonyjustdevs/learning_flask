@@ -12,26 +12,33 @@
         <input type="submit" value="Submit to 🐈‍⬛">
      </form> -->
 
-
      <!-- 2nd-vers: popup with js -->
-    <form>
+    <!-- <form>
         <input type="text" id="name_id" autocomplete="off" autofocus placeholder="Name">
         <input type="submit" value="Submit to 🐈‍⬛">
         <button type="submit">Submit to 🐐</button>
-    </form>
+    </form> -->
 
+    <!-- 3rd-vers -->
+    <form>
+        <input type="text" id="name_id" autocomplete="off" autofocus placeholder="Name">
+        <input type="submit" value="Submit to 🐈‍⬛" id="submit_id">
+        <button type="submit" id="btn_id">Submit to 🐐</button>
+    </form>
+    
     <script>
         /**
          * @param {SubmitEvent} event
          */
-        function greet3(event){
+        function greet6(event){
             let nameJS = document.querySelector("input").value
-            console.log(nameJS);
-            alert("G'day "+ nameJS);
+            console.log("[event.target]: "+ event.target + "| [event.sbmitr]: "+ event.submitter + "| [e.sbmt.id]: "+ event.submitter.id+ "| [e.sbmt.val]: "+ event.submitter.value);
+            // console.log(nameJS+"[event.sbmitr]: "+ event.submitter);
+            // alert("G'day "+ nameJS + " | (e.tgt):["+event.target+"]" + " | (e.submitr):["+event.submitter+"]" + " | (e.submitr.id):["+event.submitter.id+"]");
             event.preventDefault();
         }        
         let form = document.querySelector("form")
-        form.addEventListener("submit",greet3)
+        form.addEventListener("submit",greet6)
 
 
 
