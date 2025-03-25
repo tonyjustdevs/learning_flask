@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        function greet(event){
+            let nameJS = document.querySelector("input").value
+            console.log(nameJS)
+            alert("Hey "+ nameJS)
+        }
+    </script>
     <title>Index of Tonys Web-App 🖲️</title>
 </head>
 <body>
-    Hello all 🐈‍⬛
+    <!-- 1st-vers: popup with html-only -->
+    <form onsubmit="greet(); return false;">
+        <input type="text" id="name_id" autocomplete="off" autofocus placeholder="Name">
+        <input type="submit" value="Submit to 🐈‍⬛">
+     </form>
+    <!-- 2nd-vers: popup with js -->
+     `
 </body>
 </html>
