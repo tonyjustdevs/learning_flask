@@ -6,21 +6,36 @@
         <title>🐕 Title of index.html 🐕</title>
     </head>
     <body>
-        Gday {{ JINJA_NAME }} from index.html
+        <!-- Gday { JINJA_NAME } from index.html -->
+        <!-- <form> -->
+            <!-- <input type="text" name="URL_KEY_NAME" id="input_id" -->
+            <input type="text" id="input_id"
+            placeholder="Name Please" autofocus autocomplete="off">
+            <button id="submit_id">Submit</button>
+        <!-- </form> -->
+        <script>
+            let input = document.getElementById("input_id");
 
+            let btn = document.getElementById("submit_id")
+            btn.addEventListener("click",function(){
+                console.log(input.value)
+                // console.log(input.innerHTML)
+                // console.log(input.textContent)
+            })
+        </script>
     </body>
 </html>
-<!-- 1. [GET]   index.html                                                              -> "Gday DEFAULT_NAME"  -->
 
-<!-- 2. [GET]   index.html?URL_KEY_NAME                                                 -> "Gday URL_KEY_NAME"  -->
-
-<!-- 3. [GET]   [a.] index.html.FORM['URL_KEY_NAME']                                                            -->
-<!-- 3. [GET]   [a.] add: greet.html?URL_KEY_NAME                                       -> "Gday URL_KEY_NAME"  -->
+<!-- 
+## NOW 3. add form to index.html #6
+3. add form.action to /greet to index.html #7
+3. add flask_route /greet #8
+3. add greet.html #9
+3. add map URL_KEY_NAME of app.py to JINJA_NAME placeholder of greet.html #10
+-->
 
 <!-- 4. [GET]   [a.] add: layout.html: {JJA_block blockname... endblock_JJA}                -> "Gday ??"            -->
 <!-- 4. [GET]   [b.] add: index.html:  {JJA_block blockname... endblock_JJA}                -> "Gday DEFAULT_NAME"  -->
 <!-- 4. [GET]   [b.] add: greet.html:  {JJA_block blockname... endblock_JJA}                -> "Gday URL_KEY_NAME"  -->
-
-
 
 <!-- ?. [POST]  index.html.FORM['URL_KEY_NAME'] -> ???                                -> "Gday URL_KEY_NAME" -->
