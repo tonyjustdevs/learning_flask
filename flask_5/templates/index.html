@@ -19,11 +19,12 @@
              */
             function do_some_js(event){
                 // update p
-                let input_element_value = form.querySelector("input_id").value
+                let input_element_value = form.querySelector("input").value
+                console.log(input_element_value)
                 document.querySelector("p").innerHTML = input_element_value;
                 event.preventDefault();
             }
-            let form = document.getElementById("form")
+            let form = document.querySelector("form")
             form.addEventListener("submit",do_some_js)
         </script>
     </body>
@@ -33,7 +34,7 @@
 
  #6 - add input text to index.html #6
 #DONE: #11 - add input text outside form tag to index #11 
-#NOW:  #12 - add input text inside form tag to index #12 
+#DONE:  #12 - add input text inside form tag to index #12 
 #16 -     add request.args.get to app.py to *return* form input from user #16
 #13 -     test URL_KEY of form by displaying result in a p tag #13
     #7 - add form.action to /greet to index.html #7
