@@ -3,8 +3,10 @@
 
 {% block body %}
     {% if JINJA_NAME %}
-        You are LOGGED IN, {{ JINJA_NAME }}
+        You are LOGGED IN, {{ JINJA_NAME }}.<br>
+        <a href="/logout">Log out</a>.
     {% else %}
-        You are LOGGED OUT.
+        You are LOGGED OUT.<br>
+        <a href="/login">Log in</a>.
     {% endif %}
 {% endblock %}
