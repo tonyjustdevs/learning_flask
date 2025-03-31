@@ -2,5 +2,9 @@
 
 
 {% block body %}
-    SOME TEXT ON INDEX.HTML IN` BLOCK BODY
-{% endblock %}g
+    {% if JINJA_NAME %}
+        You are LOGGED IN, {{ JINJA_NAME }}
+    {% else %}
+        You are LOGGED OUT.
+    {% endif %}
+{% endblock %}

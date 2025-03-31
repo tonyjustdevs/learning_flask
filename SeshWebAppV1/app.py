@@ -5,6 +5,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    name = None
-    # name = "messi"
+    # name = None
+    name = "messi"
     return render_template("index.html", JINJA_NAME = name) #NOW add jinja if logic
