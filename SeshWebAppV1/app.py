@@ -7,4 +7,4 @@ app = Flask(__name__)
 def index():
     name = None
     # name = "messi"
-    return render_template("index.html", JINJA_NAME = name)
+    return render_template("index.html", JINJA_NAME = name) #NOW add jinja if logic
