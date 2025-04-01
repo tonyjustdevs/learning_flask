@@ -1,4 +1,4 @@
 tony_files
 archive
 *.pyc
-.venv
+.venv.venv*
