@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Tony's🍪CookiesSeshApp{% endblock %}
+
+{% block body %}
+
+    <h1>Welcome to Tony's Cookies & Sessions Web App</h1>
+    <p>{{server_msg}}</p>
+    
+    <a href={{url_for('set_cookie_fn')}}>Set Cookies.</a><br>
+    <a href={{url_for('get_cookie_fn')}}>Get Cookies.</a><br>
+{% endblock %}
+
+
