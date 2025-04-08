@@ -1,0 +1,12 @@
+{% extends "layout.jinja" %}
+{% block title %}🍪🍪🍪{% endblock %}
+
+{% block body %}
+    <h1>🍪Tony's Cookie Web-App🍪</h1>
+    <p> {{server_msg}} </p>
+    
+    <a href={{url_for('set_session_data_fn')}}>Set Session.</a><br>
+    <a href={{url_for('get_session_data_fn')}}>Get Session Data.</a><br>
+    <a href={{url_for('clear_session_data_fn')}}>Clear Session Data.</a><br>
+    <a href={{url_for('index_fn')}}>Go To Homepage.</a><br>
+{% endblock %} 

@@ -1,4 +1,7 @@
 tony_files
 archive
 *.pyc
-.venv.venv*
+.venv
+.venv*
+.*venv*
+packages
