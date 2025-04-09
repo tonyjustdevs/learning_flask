@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>{{SERVER_MSG}}</h1>
+<ul>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope = "col">Hero</th>
+                <th scope = "col">Pokemon</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for HERO in ADVENTURERS_DICT %}
+                <tr>
+                    <td>{{HERO.capitalize()}}</td>
+                    <td>{{ADVENTURERS_DICT[HERO]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</ul>
+{% endblock %}
