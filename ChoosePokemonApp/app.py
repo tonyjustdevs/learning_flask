@@ -32,13 +32,6 @@ def chosen_fn():
             
             ########## beg add-to-db
             con = sqlite3.connect("pokemon.db")
-
-            # INPUT_LIST = [
-            #     ('brock','geodude'),
-            #     ('ange','mateball'),
-            #     ('messi','goat'),
-            # ]
-
             with con:
                 cur = con.cursor()    
                 
@@ -50,9 +43,9 @@ def chosen_fn():
             #     con.executemany("INSERT INTO adventurers (name, pokemon) VALUES (?,?)", INPUT_LIST)    
                 con.execute("INSERT INTO adventurers (name, pokemon) VALUES (?,?)", (name,pokemon))    
                 
-                res = cur.execute("SELECT * FROM adventurers").fetchall()
-                print(f"\n6. Insert Test Data:")
-                [print(f"\t\t{r}") for r in res]
+                # res = cur.execute("SELECT * FROM adventurers").fetchall()
+                # print(f"\n6. Insert Test Data:")
+                # [print(f"\t\t{r}") for r in res]
                 
             ########## end add-to-db
             
@@ -62,9 +55,19 @@ def chosen_fn():
 
 @app.route("/adventurers_list")
 def adventurers_list_fn():
+    con = sqlite3.connect("pokemon.db")
+    with con:
+        cur = con.cursor()    
+        ADVENTURERS_LIST = cur.execute("SELECT * FROM adventurers").fetchall()
+        print(f"select*fromadv_type: {type(ADVENTURERS_LIST)}")
+        [print(f"\t\t{r}") for r in ADVENTURERS_LIST]
+        
+        # print(ADVENTURERS_DICT)
+    
     return render_template("adventurers_list.html", 
                            SERVER_MSG = "Adventurers List",
-                           ADVENTURERS_DICT = ADVENTURERS_DICT)
-
+                           ADVENTURERS_LIST = ADVENTURERS_LIST)
+                        #    ADVENTURERS_DICT = ADVENTURERS_DICT)
+            # (1, 'ash', 'Bulbasaur', None)
 if __name__ == "__main__":
-    app.run("0.0.0.0", port=5000,debug=False)
+    app.run("0.0.0.0", port=5000,debug=True)

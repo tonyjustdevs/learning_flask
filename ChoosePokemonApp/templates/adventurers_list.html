@@ -13,10 +13,10 @@
         </thead>
 
         <tbody>
-            {% for HERO in ADVENTURERS_DICT %}
+            {% for HERO in ADVENTURERS_LIST %}
                 <tr>
-                    <td>{{HERO.capitalize()}}</td>
-                    <td>{{ADVENTURERS_DICT[HERO]}}</td>
+                    <td>{{HERO[1]}}</td>
+                    <td>{{HERO[2]}}</td>
                 </tr>
             {% endfor %}
         </tbody>
