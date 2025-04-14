@@ -1,0 +1,19 @@
+{% extends "layout.html" %}    
+{% block body %}   
+    <h1>🍪Cookies 2🍪</h1>
+    
+    <p>{{SERVER_MSG}}</p><br>
+
+    <ul>
+        {% for cookie in COOKIES %}
+            <li>{{cookie[0]}},{{cookie[1]}}</li>
+        {% endfor %}
+    </ul>
+
+    <a href={{url_for('set_cookie_fn')}}>Set Cookies</a>.<br>
+    <a href={{url_for('get_cookie_fn')}}>Get Cookies</a>.<br>
+    <a href={{url_for('del_cookie_fn')}}>Remove Cookies</a>.<br>
+    <a href={{url_for('set_session_client_fn')}}>Set Client Session</a>.<br>
+    <a href={{url_for('get_session_client_fn')}}>Get Client Session Data</a>.<br>
+
+{% endblock body %}    

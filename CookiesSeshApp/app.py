@@ -9,7 +9,7 @@ def index():
 
 @app.route("/set_cookie")
 def set_cookie_fn():
-    server_response = make_response(render_template("index.html", server_msg = "Cookies Set."))
+    server_response = (render_template("index.html", server_msg = "Cookies Set."))
     server_response.set_cookie("coolcookie","youare")
     return server_response
 
