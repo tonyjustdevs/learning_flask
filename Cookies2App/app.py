@@ -1,6 +1,9 @@
 from flask import Flask, render_template, make_response, url_for, session, request
 
+
 app = Flask(__name__)
+session(app)
+app.config["PERMANENT_SESSION"]=False   
 
 @app.route("/")
 def index():
