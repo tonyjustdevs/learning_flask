@@ -7,8 +7,39 @@
     <h1>Welcome to Tony's Cookies & Sessions Web App</h1>
     <p>{{server_msg}}</p>
     
-    <a href={{url_for('set_cookie_fn')}}>Set Cookies.</a><br>
-    <a href={{url_for('get_cookie_fn')}}>Get Cookies.</a><br>
-{% endblock %}
+    <a href={{url_for('set_cookie_fn')}}>Set Cookies Link.</a><br>
+    <a href={{url_for('get_cookie_fn')}}>Get Cookies Link.</a><br>
+    <a href={{url_for('remove_cookies_fn')}}>Delete Cookies Link.</a><br>
+    <a href={{url_for('save_session_fn')}}>Save Session Link.</a><br>
+    <a href={{url_for('get_session_fn')}}>Get Session Link.</a><br>
+    <a href={{url_for('clear_session_fn')}}>Clear Session Link.</a><br>
+    <a href={{url_for('delete_a_cookie_fn')}}>Delete A Cookie Link.</a><br>
+    <a href={{url_for('set_a_cookie_fn')}}>Set A Cookie Link.</a><br>
+
+    <br>
+   
+    <div>
+        {% if SETACOOKIE %}
+            <form action="/set_a_cookie" method="post">
+                <input type="text" name="cookie_name" placeholder="Set Cookie Name" autofocus autocomplete="off">
+                <input type="text" name="cookie_value" placeholder="Set Cookie Value" autocomplete="off">
+                <button type="submit">Register</button>
+            </form>
+        {% endif %}
+        
+        {% if KEYS_LIST %}
+            <form action="/delete_a_cookie", method="post">
+                <select name="cookie_to_delete">
+                    {% for COOKIE_KEY in KEYS_LIST %}
+                    <option value={{COOKIE_KEY}}>{{COOKIE_KEY}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Delete Cookie</button>
+            </form>
+        {% endif %}
+    </div>
+
+    {% endblock %}
+
 
 
