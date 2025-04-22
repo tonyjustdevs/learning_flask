@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, make_response, jsonify, session, url_for
-
+from flask.sessions import SecureCookieSessionInterface
+from flask_session.filesystem.filesystem import FileSystemSessionInterface
 
 app = Flask(__name__)
 app.secret_key = "a_very_not_secret_key"
+
+print(f"Default: {type(app.session_interface)}")
+# app.config['SESSION_TYPE'] = 'filesystem' # Switch to server-side session
+# from flask_session import Session
+# Session(app)
+# print("After Flask-Session:", type(app.session_interface))  # FilesystemSessionInterface
 
 @app.route("/")
 def index():
@@ -32,8 +39,16 @@ def tony2():
     }
     
     # print(debug_info)
-    # return jsonify(debug_info)
-    return server_response
+    return jsonify(debug_info)
+    # return server_response
+
+
+@app.route('/debug')
+def debug():
+    session['debug'] = True
+    s = SecureCookieSessionInterface().get_signing_serializer(app)
+    print(s.dumps(dict(session)))  # Manually encode current session
+    return 'Check your terminal!'
 
 
 def add_cookies_fn():
@@ -57,6 +72,8 @@ def save_session_fn():
 
 # def delete_session_fn():
 #     return ""
+
+
 
 
 if __name__ == "__main__":
