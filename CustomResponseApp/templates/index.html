@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Tonys Cookie-Sesh-App 2</h1>
+
+    <h3 style="color: blue;">{{SERVER_MSG}}</h3>
+
+    <br><a href="{{add_cookies_fn}}">Add Cookies</a>
+    <br><a href="{{get_cookies_fn}}">Get Cookies</a>
+    <br><a href="{{delete_cookies_fn}}">Delete Cookies</a>
+    <br><a href="{{save_session_fn}}">Save Session</a>
+    <br><a href="{{get_session_fn}}">Get Session</a>
+    <br><a href="{{delete_session_fn}}">Delete Session</a>
+{% endblock %}
