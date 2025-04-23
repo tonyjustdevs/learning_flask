@@ -6,3 +6,4 @@ archive
 .*venv*
 packages
 flask_sessions
+flask_session
