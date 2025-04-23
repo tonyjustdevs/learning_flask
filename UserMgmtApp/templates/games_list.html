@@ -1,0 +1,39 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p style=
+            "color: 
+                {% if category == 'error' %} 
+                    red 
+                {% else %} 
+                    yellow
+                {% endif %}"
+            >{{ message }}</p>
+        {% endfor %}
+        {% endwith %}
+
+    <h2>Welcome, {{ session['username'] }}</h2>
+    
+    
+    <h3>Games List</h3>
+    <ul>
+        {% for game_id, game_title, year in games_list %}
+            <!-- <form action={{url_for('cart')}} method="post"> -->
+                <form action={{url_for('dashboard')}} method="post">
+                <input type="text" hidden name="game_id" value={{ game_id }}>
+                <input type="text" hidden name="action" value="add">
+                {{game_title}} - <button type="submit">Add to Cart</button> 
+            </form>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('register_book') }}">Register A Book</a><br>
+    <a href="{{ url_for('add_game') }}">Add A Game</a><br>
+    <a href="{{ url_for('logout') }}">Logout</a><br><br>
+    
+    {% endblock %}
+    

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h2>Add A Game</h2>
+    <form method="POST" action="/add_game">
+        Game Title: <input name="game_tit   le" required autocomplete="off" autofocus><br>
+        Year Published: <input name="year" required autocomplete="off"><br>
+        <button type="submit">Add A Game</button>
+    </form>
+    <a href="{{ url_for('login') }}">Login</a><br>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('register_book') }}">Register A Book</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        <p style="color: {% if category == 'error' %}red{% else %}green{% endif %}">{{ message }}</p>
+    {% endfor %}
+    {% endwith %}
+
+{% endblock %}
