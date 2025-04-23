@@ -5,3 +5,4 @@ archive
 .venv*
 .*venv*
 packages
+flask_sessions
