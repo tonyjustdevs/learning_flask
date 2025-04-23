@@ -30,9 +30,12 @@ def logout():
 def login():
     if request.method == "POST":
         username = request.form.get('username')
+        session['username'] = username
         return render_template("index.html", SERVER_MSG = f"Logged in as, {username}", USERNAME=username)
     else:
-        if session["username"]:
+        if session.get("username"):
+            username = session.get("username")
+            print(session)
             return render_template("index.html", SERVER_MSG = f'Welcome back, {username}', USERNAME=username)
         else:
             return render_template("index.html", SERVER_MSG = f'Please login')
