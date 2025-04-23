@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>ServerApp</h1>
+
+    <h3>{{SERVER_MSG}}</h3>
+
+    {% if SERVER_MSG == "Welcome Guest" or SERVER_MSG == "Please login" or SERVER_MSG == "Logged out!" %}
+
+        <div id="loginWrapper">
+            <button type="button" id="toggle_button_id" onclick="toggleLoginForm()">Click to Login</button>
+
+            <form action="/login" method="post" id="login_form_id" style="display: none; margin:0;">
+                <input type="text" name="username" autofocus autocomplete="off" placeholder="Username">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <br>
+        <script>
+            function toggleLoginForm(){
+                const form          = document.getElementById("login_form_id")
+                const toggle_btn    = document.getElementById("toggle_button_id")
+                const logout_link    = document.getElementById("logout_id")
+                form.style.display = "block";
+                toggle_btn.style.display = "none";
+                // logout_link.style.display = "block";
+            }
+            </script>
+    {% endif %}
+    
+    {% if USERNAME %}
+        <a href='/logout' id="logout_id">Logout 🚽</a><br>
+    {% endif %}
+
+<!-- <a href='/login'>Login 🗃️</a><br> -->
+{% endblock %}
